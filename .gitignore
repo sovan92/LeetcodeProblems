@@ -7,6 +7,15 @@
 # BlueJ files
 *.ctxt
 
+# Eclipse settings and Project
+*.project
+*.settings
+*.prefs
+*bin/*
+*.classpath
+*.DS_Store
+
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
