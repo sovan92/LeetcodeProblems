@@ -13,54 +13,50 @@ import java.util.Arrays;
  * where W is a word in words. 
  */
 
-
-
 public class LeetcodeCompareStringFrequencySmallestCharacter {
 
-	 public int[] numSmallerByFrequency(String[] queries, String[] words) {
-	        
-	        int [] left = new int[queries.length];
-	        int [] right = new int[words.length];
-	        for(int i = 0;i< queries.length;i++){
-	            left[i] = f(queries[i]);
-	        }
-	        
-	        for(int i = 0;i< words.length;i++){
-	            right[i] = f(words[i]);
-	        }
-	        
-	        Arrays.sort(right);
-	       
-	        int [] answers = new int[left.length];
-	        int ptr = 0;
-	        for(int i = 0;i< left.length;i++){
-	            
-	            ptr = right.length-1;
-	            while((ptr>=0) && (right[ptr] > left[i])){
-	                answers[i]++;
-	                ptr--;
-	            }
-	        }
-	        return answers;
-	    }
-	    public int f(String x){
-	        
-	        char minChar = 'z';
-	        int minCount = 0;
-	        for(int i =0;i< x.length();i++){
-	            
-	            if((x.charAt(i) - 'a') < (minChar - 'a')){
-	                minChar = x.charAt(i);
-	                minCount = 1;
-	            }
-	            else if((x.charAt(i) - 'a') == (minChar - 'a')){
-	                minCount++;
-	            }
-	        }
-	        return minCount;
-	        
-	    }
-	
-	
-	
+	public int[] numSmallerByFrequency(String[] queries, String[] words) {
+
+		int[] left = new int[queries.length];
+		int[] right = new int[words.length];
+		for (int i = 0; i < queries.length; i++) {
+			left[i] = f(queries[i]);
+		}
+
+		for (int i = 0; i < words.length; i++) {
+			right[i] = f(words[i]);
+		}
+
+		Arrays.sort(right);
+
+		int[] answers = new int[left.length];
+		int ptr = 0;
+		for (int i = 0; i < left.length; i++) {
+
+			ptr = right.length - 1;
+			while ((ptr >= 0) && (right[ptr] > left[i])) {
+				answers[i]++;
+				ptr--;
+			}
+		}
+		return answers;
+	}
+
+	public int f(String x) {
+
+		char minChar = 'z';
+		int minCount = 0;
+		for (int i = 0; i < x.length(); i++) {
+
+			if ((x.charAt(i) - 'a') < (minChar - 'a')) {
+				minChar = x.charAt(i);
+				minCount = 1;
+			} else if ((x.charAt(i) - 'a') == (minChar - 'a')) {
+				minCount++;
+			}
+		}
+		return minCount;
+
+	}
+
 }
